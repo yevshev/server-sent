@@ -1,7 +1,7 @@
 # Multi-stage build setup to reduce final image size
 
 # Stage 1: Create a build image to compile our code
-FROM golang:alpine as builder
+FROM golang:latest as builder
 RUN mkdir /build
 WORKDIR /build
 COPY server/ .
