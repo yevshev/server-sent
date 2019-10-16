@@ -1,7 +1,8 @@
 # sse-project
 
 ## Information
-The `client` directory contains the source for the [collector]() docker image
+The `client` directory contains the source for the [collector]() docker image 
+
 The `server` directory contains the source for the [sse-server]() docker image
 
 ## Deploying to Docker Swarm
