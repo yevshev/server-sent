@@ -5,6 +5,7 @@ FROM golang:alpine as builder
 RUN mkdir /build
 WORKDIR /build
 COPY server/ .
+RUN go get github.com/alexandrevicenzi/go-sse
 RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o main .
 
 

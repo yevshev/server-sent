@@ -5,6 +5,7 @@ FROM golang:alpine as builder
 RUN mkdir /build
 WORKDIR /build
 COPY client/ .
+RUN go get github.com/donovanhide/eventsource
 RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o main .
 
 
