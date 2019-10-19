@@ -6,7 +6,7 @@ RUN mkdir /build
 WORKDIR /build
 COPY server/ .
 RUN go get github.com/alexandrevicenzi/go-sse
-RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o main .
+RUN GOOS=linux CGO_ENABLED=0 GOARCH=amd64 go build -ldflags="-w -s" -o main .
 
 
 # Stage 2: Create final image containing only the go executable
