@@ -46,8 +46,8 @@ func main() {
 	// 	}
 	// }()
 
-	//hostIP := GetNodeIPAddress()
-	//println(hostIP)
+	hostIP := GetNodeIPAddress()
+	println("ip: " + hostIP)
 	//http.ListenAndServe(hostIP+":8000", nil)
 	http.ListenAndServe("ssenet:8000", nil)
 }

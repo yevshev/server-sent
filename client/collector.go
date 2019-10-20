@@ -34,6 +34,7 @@ func collectCPUTemperature(nodeIP string) {
 
 	stream, err := eventsource.Subscribe("http://"+nodeIP+"/redfish/v1/Chassis/1/Thermal", "")
 	if err != nil {
+		println(err)
 		return
 	}
 
@@ -49,12 +50,12 @@ func main() {
 
 	//nodeList := []string{"10.0.34.71:8000"}
 	nodeList := []string{"ssenet:8000", "ssenet:8000", "ssenet:8000"}
-	println("subscribing...")
 	var wg sync.WaitGroup
 	wg.Add(len(nodeList))
 
 	for _, node := range nodeList {
 		go func() {
+			println("subscribing...")
 			defer wg.Done()
 			collectCPUTemperature(node)
 		}()
