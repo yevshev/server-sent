@@ -53,14 +53,14 @@ func main() {
 	nodeList := [3]string{"server1:8000", "server2:8000", "server3:8000"}
 
 	var wg sync.WaitGroup
-	wg.Add(len(nodeList))
+	//wg.Add(len(nodeList))
 
 	for _, node := range nodeList {
-		go func() {
+		wg.Add(1)
+		go func(nodeAddress string) {
 			defer wg.Done()
-			collectCPUTemperature(node)
-		}()
-
+			collectCPUTemperature(nodeAddress)
+		}(node)
 	}
 
 	wg.Wait()
