@@ -48,9 +48,13 @@ func main() {
 	// }()
 
 	//hostIP := GetNodeIPAddress()
+	hostIP, err := os.Hostname()
+	if err != nil {
+		panic(err)
+	}
 	//println(hostIP)
-	//http.ListenAndServe(hostIP+":8000", nil)
-	http.ListenAndServe("0.0.0.0:8000", nil)
+	http.ListenAndServe(hostIP+":8000", nil)
+	//http.ListenAndServe("0.0.0.0:8000", nil)
 }
 
 func GetNodeIPAddress() string {
