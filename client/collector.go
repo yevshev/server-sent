@@ -43,9 +43,7 @@ func collectCPUTemperature(nodeIP string) {
 		var result CPUTempObj
 		json.Unmarshal([]byte(ev.Data()), &result)
 		cpu_temp, cpu_temp_state, host_address := lambdaStateDiscovery(result)
-		fmt.Printf("\nNode : %s\n", host_address)
-		fmt.Printf("CPU Temp: %.2fC\n", cpu_temp)
-		fmt.Printf("CPU State: %s\n", cpu_temp_state)
+		fmt.Printf("%s %.2fC %s\n", host_address, cpu_temp, cpu_temp_state)
 	}
 }
 func main() {
