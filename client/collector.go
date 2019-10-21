@@ -49,13 +49,12 @@ func collectCPUTemperature(nodeIP string) {
 func main() {
 
 	//nodeList := []string{"10.0.34.71:8000"}
-	nodeList := []string{"server:8000", "server:8000", "server:8000"}
+	nodeList := []string{"server1:8000", "server2:8000", "server3:8000"}
 	var wg sync.WaitGroup
 	wg.Add(len(nodeList))
 
 	for _, node := range nodeList {
 		go func() {
-			println("subscribing...")
 			defer wg.Done()
 			collectCPUTemperature(node)
 		}()
