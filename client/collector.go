@@ -50,7 +50,7 @@ func collectCPUTemperature(nodeIP string) {
 }
 func main() {
 
-	nodeList := [5]string{
+	nodeList := [20]string{
 		"server1:8000", "server2:8000", "server3:8000", "server4:8000",
 		"server5:8000", "server6:8000", "server7:8000", "server8:8000",
 		"server9:8000", "server10:8000", "server11:8000", "server12:8000",
