@@ -6,7 +6,6 @@ import (
 	"log"
 	"math"
 	"math/rand"
-	"net"
 	"net/http"
 	"os"
 	"time"
@@ -37,43 +36,12 @@ func main() {
 		}
 	}()
 
-	// // Dispatch messages to channel-2
-	// go func() {
-	// 	i := 0
-	// 	for {
-	// 		i++
-	// 		s.SendMessage("/events/channel-2", sse.SimpleMessage(strconv.Itoa(i)))
-	// 		time.Sleep(5 * time.Second)
-	// 	}
-	// }()
-
-	//hostIP := GetNodeIPAddress()
+	// Get hostname
 	hostIP, err := os.Hostname()
 	if err != nil {
 		panic(err)
 	}
-	//println(hostIP)
 	http.ListenAndServe(hostIP+":8000", nil)
-	//http.ListenAndServe("0.0.0.0:8000", nil)
-}
-
-func GetNodeIPAddress() string {
-
-	addrs, err := net.InterfaceAddrs()
-	if err != nil {
-		log.Fatalf("could not obtain host IP address: %v", err)
-	}
-	ip := ""
-	for _, a := range addrs {
-		if ipnet, ok := a.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
-			if ipnet.IP.To4() != nil {
-				ip = ipnet.IP.String()
-				break
-			}
-		}
-	}
-
-	return ip
 }
 
 func randTemperature(min, max float64) float64 {
@@ -88,7 +56,7 @@ func GetCPUTemp() []byte {
 	if err != nil {
 		panic(err)
 	}
-	log.Println("\nCPU temperature\n")
+	log.Println("CPU temperature")
 
 	// Its a mockup CPU temperature
 	cpuTempObj := new(CPUTempObj)

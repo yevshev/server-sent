@@ -6,7 +6,7 @@ services:
     hostname: server1
     image: yevshev/sse-server
     ports:
-      - 8001:8000
+      - "8000"
     networks:
       - ssenet
 
@@ -14,7 +14,7 @@ services:
     hostname: server2
     image: yevshev/sse-server
     ports:
-      - 8002:8000
+      - "8000"
     networks:
       - ssenet
 
@@ -22,7 +22,23 @@ services:
     hostname: server3
     image: yevshev/sse-server
     ports:
-      - 8003:8000
+      - "8000"
+    networks:
+      - ssenet
+
+  server4:
+    hostname: server4
+    image: yevshev/sse-server
+    ports:
+      - "8000"
+    networks:
+      - ssenet
+
+  server5:
+    hostname: server5
+    image: yevshev/sse-server
+    ports:
+      - "8000"
     networks:
       - ssenet
 
@@ -31,7 +47,7 @@ services:
     hostname: client
     image: yevshev/collector
     ports:
-      - 8000:8000
+      - "8000"
     networks:
       - ssenet
 

@@ -43,17 +43,22 @@ func collectCPUTemperature(nodeIP string) {
 		var result CPUTempObj
 		json.Unmarshal([]byte(ev.Data()), &result)
 		cpu_temp, cpu_temp_state, host_address := lambdaStateDiscovery(result)
-		fmt.Printf("\n CPU Temperature: %.2fC and CPU Temperature State: %s\n", cpu_temp, cpu_temp_state)
-		fmt.Printf("Host Address: %s\n", host_address)
+		fmt.Printf("Node : %s\n", host_address)
+		fmt.Printf("CPU Temp: %.2fC\n", cpu_temp)
+		fmt.Printf("CPU State: %s\n", cpu_temp_state)
 	}
 }
 func main() {
 
-	//nodeList := []string{"10.0.34.71:8000"}
-	nodeList := [3]string{"server1:8000", "server2:8000", "server3:8000"}
+	nodeList := [5]string{
+		"server1:8000",
+		"server2:8000",
+		"server3:8000",
+		"server4:8000",
+		"server5:8000",
+	}
 
 	var wg sync.WaitGroup
-	//wg.Add(len(nodeList))
 
 	for _, node := range nodeList {
 		wg.Add(1)
