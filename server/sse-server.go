@@ -8,6 +8,7 @@ import (
 	"math/rand"
 	"net"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/alexandrevicenzi/go-sse"
@@ -78,7 +79,11 @@ func randTemperature(min, max float64) float64 {
 
 // CPU temperature
 func GetCPUTemp() []byte {
-	hostIP := GetNodeIPAddress()
+	//hostIP := GetNodeIPAddress()
+	hostIP, err := os.Hostname()
+	if err != nil {
+		panic(err)
+	}
 	log.Println("\nCPU temperature\n")
 
 	// Its a mockup CPU temperature
