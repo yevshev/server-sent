@@ -47,24 +47,34 @@ func collectCPUTemperature(nodeIP string) {
 	}
 }
 func main() {
+	/*
+		nodeList := [20]string{
+			"server1:8000", "server2:8000", "server3:8000", "server4:8000",
+			"server5:8000", "server6:8000", "server7:8000", "server8:8000",
+			"server9:8000", "server10:8000", "server11:8000", "server12:8000",
+			"server13:8000", "server14:8000", "server15:8000", "server16:8000",
+			"server17:8000", "server18:8000", "server19:8000", "server20:8000",
+		}
 
-	nodeList := [20]string{
-		"server1:8000", "server2:8000", "server3:8000", "server4:8000",
-		"server5:8000", "server6:8000", "server7:8000", "server8:8000",
-		"server9:8000", "server10:8000", "server11:8000", "server12:8000",
-		"server13:8000", "server14:8000", "server15:8000", "server16:8000",
-		"server17:8000", "server18:8000", "server19:8000", "server20:8000",
-	}
 
+		var wg sync.WaitGroup
+
+		for _, node := range nodeList {
+			wg.Add(1)
+			go func(nodeAddress string) {
+				defer wg.Done()
+				collectCPUTemperature(nodeAddress)
+			}(node)
+		}
+	*/
 	var wg sync.WaitGroup
 
-	for _, node := range nodeList {
+	for i := 0; i < 100; i++ {
 		wg.Add(1)
 		go func(nodeAddress string) {
 			defer wg.Done()
 			collectCPUTemperature(nodeAddress)
-		}(node)
+		}("server:8000")
 	}
-
 	wg.Wait()
 }
