@@ -49,7 +49,7 @@ func collectCPUTemperature(nodeIP string) {
 }
 func main() {
 
-	var nodeList [200]string
+	var nodeList [20]string
 
 	// Fill array with server hostnames
 	for i := range nodeList {
