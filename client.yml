@@ -3,7 +3,7 @@ version: "3"
 services:
 
   client:
-    image: yevshev/collector
+    image: yevshev/collector:latest
     ports:
       - "8000"
     networks:
