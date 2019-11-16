@@ -16,10 +16,11 @@ type CPUTempObj struct {
 	CPUTemp     float64
 }
 
-func lambdaStateDiscovery(v CPUTempObj) (float64, string, string) {
+func lambdaStateDiscovery(v CPUTempObj) (float64, string, string, string) {
 	cpu_temp := v.CPUTemp
 	cpu_temp_state := "CPU_TEMP_NONDETERMINISTIC"
 	host_address := v.HostAddress
+	timestamp := v.TimeStamp.Format(time.StampNano)
 
 	if cpu_temp <= 3 || cpu_temp >= 98 {
 		cpu_temp_state = "CPU_TEMP_CRITICAL"
@@ -28,13 +29,13 @@ func lambdaStateDiscovery(v CPUTempObj) (float64, string, string) {
 	} else if cpu_temp > 3 && cpu_temp < 93 {
 		cpu_temp_state = "CPU_TEMP_OK"
 	}
-	return cpu_temp, cpu_temp_state, host_address
+	return timestamp, cpu_temp, cpu_temp_state, host_address
 
 }
 
-func collectCPUTemperature(nodeIP string) {
+func collectCPUTemperature(hostname string) {
 
-	stream, err := eventsource.Subscribe("http://"+nodeIP+"/redfish/v1/Chassis/1/Thermal", "")
+	stream, err := eventsource.Subscribe("http://"+hostname+"/redfish/v1/Chassis/1/Thermal", "")
 	if err != nil {
 		return
 	}
@@ -43,8 +44,8 @@ func collectCPUTemperature(nodeIP string) {
 		ev := <-stream.Events
 		var result CPUTempObj
 		json.Unmarshal([]byte(ev.Data()), &result)
-		cpu_temp, cpu_temp_state, host_address := lambdaStateDiscovery(result)
-		fmt.Printf("%s %.2fC %s\n", host_address, cpu_temp, cpu_temp_state)
+		timestamp, cpu_temp, cpu_temp_state, host_address := lambdaStateDiscovery(result)
+		fmt.Printf("%s %s %.2fC %s\n", timestamp, host_address, cpu_temp, cpu_temp_state)
 	}
 }
 func main() {
@@ -66,5 +67,6 @@ func main() {
 			collectCPUTemperature(nodeAddress)
 		}(node)
 	}
+
 	wg.Wait()
 }

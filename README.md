@@ -1,21 +1,12 @@
-# sse-project
+# Server-Sent Events Simulation
+*HTTP Polling repository can be found [here](https://github.com/yevshev/server-sent)*
 
 ## Information
-The `client` directory contains the source for the [collector]() docker image 
+The `client` directory contains the source for the [http-client](https://hub.docker.com/repository/docker/yevshev/http-client) docker image 
 
-The `server` directory contains the source for the [sse-server]() docker image
+The `server` directory contains the source for the [http-server](https://hub.docker.com/repository/docker/yevshev/http-server) docker image
 
 ## Deploying to Docker Swarm
-First, generate a personal access token from your dockerhub [settings](https://hub.docker.com/settings/security) page.
-
-Because our image registry is private, we'll need to log in to our dockerhub account in order to pull our images.
-
-```sh
-# log in to your docker account
-$ docker login --username <username>
-
-# At the password prompt, enter your personal access token.
-```
 Deploy 100 containers with each running our go binary, and name it 'test-cluster':
 
 ```sh

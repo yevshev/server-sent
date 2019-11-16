@@ -1,9 +1,9 @@
-version: "3"
+version: "3.7"
 
 services:
 
   client:
-    image: yevshev/collector:latest
+    image: yevshev/sse-client:latest
     ports:
       - "8000"
     networks:
