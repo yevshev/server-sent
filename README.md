@@ -6,6 +6,12 @@ The `client` directory contains the source for the [sse-client](https://hub.dock
 
 The `server` directory contains the source for the [sse-server](https://hub.docker.com/repository/docker/yevshev/sse-server) docker image
 
+## Create an overlay network
+Create a virtual network for all of our containers to communicate with eachother, and name it 'ssenet':
+```sh
+$ docker network create -d overlay --attachable ssenet
+```
+
 ## Deploying to Docker Swarm
 Deploy the sse server containers defined in [servers.yml](https://github.com/yevshev/server-sent/blob/master/servers.yml), each running our Go sse server binary, and name it 'sse':
 
