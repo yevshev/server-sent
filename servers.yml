@@ -322,85 +322,85 @@ services:
     networks:
       - ssenet
 
-  # server40:
-  #   hostname: server40
-  #   image: yevshev/sse-server:latest
-  #   ports:
-  #     - "8000"
-  #   networks:
-  #     - ssenet
+  server40:
+    hostname: server40
+    image: yevshev/sse-server:latest
+    ports:
+      - "8000"
+    networks:
+      - ssenet
  
-  # server41:
-  #   hostname: server41
-  #   image: yevshev/sse-server:latest
-  #   ports:
-  #     - "8000"
-  #   networks:
-  #     - ssenet
+  server41:
+    hostname: server41
+    image: yevshev/sse-server:latest
+    ports:
+      - "8000"
+    networks:
+      - ssenet
 
-  # server42:
-  #   hostname: server42
-  #   image: yevshev/sse-server:latest
-  #   ports:
-  #     - "8000"
-  #   networks:
-  #     - ssenet
+  server42:
+    hostname: server42
+    image: yevshev/sse-server:latest
+    ports:
+      - "8000"
+    networks:
+      - ssenet
 
-  # server43:
-  #   hostname: server43
-  #   image: yevshev/sse-server:latest
-  #   ports:
-  #     - "8000"
-  #   networks:
-  #     - ssenet
+  server43:
+    hostname: server43
+    image: yevshev/sse-server:latest
+    ports:
+      - "8000"
+    networks:
+      - ssenet
 
-  # server44:
-  #   hostname: server44
-  #   image: yevshev/sse-server:latest
-  #   ports:
-  #     - "8000"
-  #   networks:
-  #     - ssenet
+  server44:
+    hostname: server44
+    image: yevshev/sse-server:latest
+    ports:
+      - "8000"
+    networks:
+      - ssenet
 
-  # server45:
-  #   hostname: server45
-  #   image: yevshev/sse-server:latest
-  #   ports:
-  #     - "8000"
-  #   networks:
-  #     - ssenet
+  server45:
+    hostname: server45
+    image: yevshev/sse-server:latest
+    ports:
+      - "8000"
+    networks:
+      - ssenet
 
-  # server46:
-  #   hostname: server46
-  #   image: yevshev/sse-server:latest
-  #   ports:
-  #     - "8000"
-  #   networks:
-  #     - ssenet
+  server46:
+    hostname: server46
+    image: yevshev/sse-server:latest
+    ports:
+      - "8000"
+    networks:
+      - ssenet
 
-  # server47:
-  #   hostname: server47
-  #   image: yevshev/sse-server:latest
-  #   ports:
-  #     - "8000"
-  #   networks:
-  #     - ssenet
+  server47:
+    hostname: server47
+    image: yevshev/sse-server:latest
+    ports:
+      - "8000"
+    networks:
+      - ssenet
 
-  # server48:
-  #   hostname: server48
-  #   image: yevshev/sse-server:latest
-  #   ports:
-  #     - "8000"
-  #   networks:
-  #     - ssenet
+  server48:
+    hostname: server48
+    image: yevshev/sse-server:latest
+    ports:
+      - "8000"
+    networks:
+      - ssenet
 
-  # server49:
-  #   hostname: server49
-  #   image: yevshev/sse-server:latest
-  #   ports:
-  #     - "8000"
-  #   networks:
-  #     - ssenet
+  server49:
+    hostname: server49
+    image: yevshev/sse-server:latest
+    ports:
+      - "8000"
+    networks:
+      - ssenet
 
   # server50:
   #   hostname: server50
