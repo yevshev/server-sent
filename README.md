@@ -2,36 +2,30 @@
 *HTTP Polling repository can be found [here](https://github.com/yevshev/server-sent)*
 
 ## Information
-The `client` directory contains the source for the [http-client](https://hub.docker.com/repository/docker/yevshev/http-client) docker image 
+The `client` directory contains the source for the [sse-client](https://hub.docker.com/repository/docker/yevshev/sse-client) docker image 
 
-The `server` directory contains the source for the [http-server](https://hub.docker.com/repository/docker/yevshev/http-server) docker image
+The `server` directory contains the source for the [sse-server](https://hub.docker.com/repository/docker/yevshev/sse-server) docker image
 
 ## Deploying to Docker Swarm
-Deploy 100 containers with each running our go binary, and name it 'test-cluster':
+Deploy the sse server containers defined in [servers.yml](https://github.com/yevshev/server-sent/blob/master/servers.yml), each running our Go sse server binary, and name it 'sse':
 
 ```sh
-$ docker service create --replicas 100 --name test-cluster yevshev/emulator-push
-
-# We can provide addtional parameters as needed
+$ docker stack deploy -c servers.yml sse
 ```
-Additional docker service [commands](https://docs.docker.com/engine/reference/commandline/service/
-):
+Deploy the sse client container defined in [client.yml](https://github.com/yevshev/server-sent/blob/master/client.yml), runnin our Go sse client binary, and name it 'collector':
+
 ```sh
-# List running docker services
-$ docker service ls
+$ docker stack deploy -c client.yml events
+```
 
-# Display detailed information on the service
-$ docker service inspect test-cluster --pretty
+## Client logs
+View a real-time feed of all the data the client receives from the servers:
+```sh
+$ docker service logs events_client -f
+```
 
-# Scale our service to 1000 containers
-$ docker service scale test-cluster=1000
-
-# Remove the service
-$ docker service rm test-cluster
-
-# stop all running containers
-$ docker stop $(docker ps -a -q)
-
-# Delete all containers
-$ docker rm $(docker ps -a -q)
+## Performance Metrics
+View a real-time feed of resource utilization and performance for each runing container:
+```sh
+$ docker stats
 ```
