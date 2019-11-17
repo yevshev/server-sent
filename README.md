@@ -12,7 +12,7 @@ Deploy the sse server containers defined in [servers.yml](https://github.com/yev
 ```sh
 $ docker stack deploy -c servers.yml sse
 ```
-Deploy the sse client container defined in [client.yml](https://github.com/yevshev/server-sent/blob/master/client.yml), runnin our Go sse client binary, and name it 'collector':
+Deploy the sse client container defined in [client.yml](https://github.com/yevshev/server-sent/blob/master/client.yml), running our Go sse client binary, and name it 'collector':
 
 ```sh
 $ docker stack deploy -c client.yml events
@@ -28,4 +28,10 @@ $ docker service logs events_client -f
 View a real-time feed of resource utilization and performance for each runing container:
 ```sh
 $ docker stats
+```
+
+## Cleanup
+Stop and delete the 'sse' server stack and 'events' client stack:
+```sh
+$ docker stack rm sse events
 ```
