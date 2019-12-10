@@ -42,4 +42,4 @@ Stop and delete the 'sse' server stack and 'events' client stack:
 $ docker stack rm sse events
 ```
 
-# [Demonstration](https://asciinema.org/a/QC7TGAAnCR7l1t68GBuyKrMXs)
+[![asciicast](https://asciinema.org/a/QC7TGAAnCR7l1t68GBuyKrMXs.png)](https://asciinema.org/a/QC7TGAAnCR7l1t68GBuyKrMXs)
