@@ -1,5 +1,5 @@
 # Server-Sent Events Simulation
-
+[![asciicast](https://asciinema.org/a/QC7TGAAnCR7l1t68GBuyKrMXs.png)](https://asciinema.org/a/QC7TGAAnCR7l1t68GBuyKrMXs)
 *HTTP Polling repository can be found [here](https://github.com/yevshev/polling)*
 
 ## Information
