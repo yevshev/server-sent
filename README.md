@@ -1,5 +1,6 @@
 # Server-Sent Events Simulation
-*HTTP Polling repository can be found [here](https://github.com/yevshev/server-sent)*
+[![asciicast](https://asciinema.org/a/QC7TGAAnCR7l1t68GBuyKrMXs.png)](https://asciinema.org/a/QC7TGAAnCR7l1t68GBuyKrMXs)
+*HTTP Polling repository can be found [here](https://github.com/yevshev/polling)*
 
 ## Information
 The `client` directory contains the source for the [sse-client](https://hub.docker.com/repository/docker/yevshev/sse-client) docker image 
@@ -41,5 +42,3 @@ Stop and delete the 'sse' server stack and 'events' client stack:
 ```sh
 $ docker stack rm sse events
 ```
-
-[![asciicast](https://asciinema.org/a/QC7TGAAnCR7l1t68GBuyKrMXs.png)](https://asciinema.org/a/QC7TGAAnCR7l1t68GBuyKrMXs)
