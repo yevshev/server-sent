@@ -16,7 +16,7 @@ type CPUTempObj struct {
 	CPUTemp     float64
 }
 
-func lambdaStateDiscovery(v CPUTempObj) (float64, string, string, string) {
+func lambdaStateDiscovery(v CPUTempObj) (string, float64, string, string) {
 	cpu_temp := v.CPUTemp
 	cpu_temp_state := "CPU_TEMP_NONDETERMINISTIC"
 	host_address := v.HostAddress
@@ -48,6 +48,7 @@ func collectCPUTemperature(hostname string) {
 		fmt.Printf("%s %s %.2fC %s\n", timestamp, host_address, cpu_temp, cpu_temp_state)
 	}
 }
+
 func main() {
 
 	// Poll 50 servers
